@@ -1,0 +1,48 @@
+{
+  "env": {
+    "es2021": true,
+    "node": true
+  },
+  "extends": [
+    "alloy",
+    "alloy/react",
+    "alloy/typescript",
+    "prettier"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "project": "./tsconfig.json",
+    "tsconfigRootDir": "./"
+  },
+  "settings": {
+    "import/resolver": {
+      "typescript": {}
+    },
+    "max-len": [
+      "error",
+      {
+        "code": 140,
+        "tabWidth": 2
+      }
+    ]
+  },
+  "plugins": [
+    "@typescript-eslint",
+    "import"
+  ],
+  "rules": {
+    "no-unused-vars": "off",
+    "max-classes-per-file": "off",
+    "class-methods-use-this": "off",
+    "lines-between-class-members": "off",
+    "no-shadow": "off",
+    "no-console": "off",
+    "no-useless-constructor": "off",
+    "import/extensions": "off",
+    "@typescript-eslint/no-shadow": [
+      "error"
+    ]
+  }
+}
