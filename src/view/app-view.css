@@ -1,38 +1,39 @@
-html, body {
-    margin: 0;
-    padding: 0;
-    background: #909090 !important;
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: #909090 !important;
 }
 
 .content-wrapper {
-    padding: 3rem 0;
+  padding: 3rem 0;
 }
 
 .content-layout {
-    min-height: 280px;
-    width: 400px;
-    margin: auto;
-    background: #fff;
-    padding: 2rem;
-    border-radius: 1rem;
-    border: 1px solid black;
+  min-height: 280px;
+  width: 400px;
+  margin: auto;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 1rem;
+  border: 1px solid black;
 }
 
 .content-footer {
-    width: 300px;
-    text-align: center;
-    margin: auto;
-    color: white !important;
-    background: transparent !important;
+  width: 300px;
+  text-align: center;
+  margin: auto;
+  color: white !important;
+  background: transparent !important;
 }
 
 .content-input-label {
-    text-align: center;
-    margin-top: 1rem;
+  text-align: center;
+  margin-top: 1rem;
 }
 
 .content-double-input-label-container {
-    text-align: center;
-    display: flex;
-    margin-top: 1rem;
+  text-align: center;
+  display: flex;
+  margin-top: 1rem;
 }
