@@ -3,4 +3,5 @@ export enum CipherType {
   Pesel = "PESEL",
   Iban = "IBAN",
   Vigenere = "VIGENERE",
+  Playfair = "PLAYFAIR",
 }
