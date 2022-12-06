@@ -4,4 +4,5 @@ export enum CipherType {
   Iban = "IBAN",
   Vigenere = "VIGENERE",
   Playfair = "PLAYFAIR",
+  Homophonic = "HOMOPHONIC",
 }

@@ -3,7 +3,7 @@ import { StringUtils } from "../utils/string-utils";
 export class PlayfairMatrix {
   public static create(keyword: string, width = 5): PlayfairMatrix {
     const prefix = keyword.toUpperCase().replace(/J/g, "I").replace(/ /g, "");
-    const characters = `${prefix}${StringUtils.dictionary}`;
+    const characters = `${prefix}${StringUtils.playfair}`;
     const valuesStr = StringUtils.distinct(characters);
     const values = this.getStrAsGrid(valuesStr, width);
     return new PlayfairMatrix(keyword, values, width);

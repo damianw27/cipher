@@ -1,12 +1,13 @@
 export class StringUtils {
-  public static readonly dictionary = "ABCDEFGHIKLMNOPQRSTUVWXYZ";
+  public static readonly playfair = "ABCDEFGHIKLMNOPQRSTUVWXYZ";
+  public static readonly dictionary = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
   public static random(length: number): string {
     let result = "";
 
     for (let charIndex = 0; charIndex < length; charIndex++) {
-      let randomChar = StringUtils.dictionary.charAt(
-        Math.floor(Math.random() * StringUtils.dictionary.length),
+      let randomChar = StringUtils.playfair.charAt(
+        Math.floor(Math.random() * StringUtils.playfair.length),
       );
 
       if (result.includes(randomChar)) {

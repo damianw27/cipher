@@ -7,6 +7,7 @@ import { PeselCipher } from "./cipher/pesel-cipher";
 import { IbanCipher } from "./cipher/iban-cipher";
 import { VigenereCipher } from "./cipher/vigenere-cipher";
 import { PlayfairCipher } from "./cipher/playfair.cipher";
+import { HomophonicCipher } from "./cipher/homophonic-cipher";
 
 const { Content, Footer } = Layout;
 const { Option } = Select;
@@ -25,6 +26,7 @@ function AppView() {
             <Option value={CipherType.Iban}>IBAN</Option>
             <Option value={CipherType.Vigenere}>Vigenere</Option>
             <Option value={CipherType.Playfair}>Playfair</Option>
+            <Option value={CipherType.Homophonic}>Homophonic</Option>
           </Select>
 
           {method === CipherType.Basic && <BaseCipher />}
@@ -32,6 +34,7 @@ function AppView() {
           {method === CipherType.Iban && <IbanCipher />}
           {method === CipherType.Vigenere && <VigenereCipher />}
           {method === CipherType.Playfair && <PlayfairCipher />}
+          {method === CipherType.Homophonic && <HomophonicCipher />}
         </div>
       </Content>
       <Footer className="content-footer">Damian Wileński © 2022</Footer>
