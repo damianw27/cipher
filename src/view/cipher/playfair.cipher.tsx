@@ -30,7 +30,7 @@ export const PlayfairCipher = (): ReactElement => {
     throw new Error(`Unable to find index pair for char ${inputStr} in matrix`);
   };
 
-  const encode = (inputStr: string, matrix: PlayfairMatrix): string => {
+  const encrypt = (inputStr: string, matrix: PlayfairMatrix): string => {
     let tmpInputStr = inputStr;
     let encodedStr = "";
 
@@ -58,13 +58,13 @@ export const PlayfairCipher = (): ReactElement => {
       }
     } catch (error) {
       console.error(error);
-      return "ERROR: Unable to encode string";
+      return "ERROR: Unable to encrypt string";
     }
 
     return encodedStr;
   };
 
-  const decode = (inputStr: string, matrix: PlayfairMatrix): string => {
+  const decrypt = (inputStr: string, matrix: PlayfairMatrix): string => {
     let tmpInputStr = inputStr;
     let decodedStr = "";
 
@@ -100,7 +100,7 @@ export const PlayfairCipher = (): ReactElement => {
       }
     } catch (error) {
       console.error(error);
-      return "ERROR: Unable to decode string";
+      return "ERROR: Unable to decrypt string";
     }
 
     return decodedStr;
@@ -118,11 +118,11 @@ export const PlayfairCipher = (): ReactElement => {
   }, [keyword]);
 
   useEffect(() => {
-    setEncrypted(encode(input, playfairMatrix));
+    setEncrypted(encrypt(input, playfairMatrix));
   }, [input, playfairMatrix]);
 
   useEffect(() => {
-    setDecrypted(decode(encrypted, playfairMatrix));
+    setDecrypted(decrypt(encrypted, playfairMatrix));
   }, [encrypted]);
 
   return (

@@ -51,7 +51,7 @@ export const IbanCipher = (): ReactElement => {
     return 98 - countSumOfDigits(accountNumber);
   };
 
-  const encode = (inputStr: string): string => {
+  const encrypt = (inputStr: string): string => {
     let accountNumberStr = inputStr.trim().replaceAll(" ", "");
 
     const accountNumberStartSigns = accountNumberStr
@@ -82,7 +82,7 @@ export const IbanCipher = (): ReactElement => {
   };
 
   useEffect(() => {
-    setEncrypted(encode(input));
+    setEncrypted(encrypt(input));
   }, [input]);
 
   useEffect(() => {

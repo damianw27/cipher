@@ -3,19 +3,19 @@ import { Input, Radio } from "antd";
 import { HomophonicDictionary } from "../../model/homophonic-dictionary";
 
 export function HomophonicCipher() {
-  const [input, setInput] = useState<string>("");
+  const [input, setInput] = useState<string>("SOME TEXT TO ENCRYPT");
   const [useRandomApproach, setUseRandomApproach] = useState<boolean>(false);
   const [dictionary, setDictionary] = useState<HomophonicDictionary>();
   const [encrypted, setEncrypted] = useState<string>("");
   const [decrypted, setDecrypted] = useState<string>("");
 
-  const encode = (inputStr: string, currentDictionary: HomophonicDictionary): string =>
+  const encrypt = (inputStr: string, currentDictionary: HomophonicDictionary): string =>
     inputStr
       .split("")
       .map((char) => currentDictionary.getSecretChar(char))
       .join("");
 
-  const decode = (inputStr: string, currentDictionary: HomophonicDictionary): string =>
+  const decrypt = (inputStr: string, currentDictionary: HomophonicDictionary): string =>
     inputStr
       .split("")
       .map((char) => currentDictionary.getNormalChar(char))
@@ -26,7 +26,7 @@ export function HomophonicCipher() {
       return;
     }
 
-    setEncrypted(encode(input, dictionary));
+    setEncrypted(encrypt(input, dictionary));
   }, [input, dictionary]);
 
   useEffect(() => {
@@ -34,7 +34,7 @@ export function HomophonicCipher() {
       return;
     }
 
-    setDecrypted(decode(encrypted, dictionary));
+    setDecrypted(decrypt(encrypted, dictionary));
   }, [encrypted]);
 
   useEffect(() => {
@@ -48,7 +48,7 @@ export function HomophonicCipher() {
   return (
     <>
       <div className="content-input-label">Input</div>
-      <Input value={input} onChange={(event) => setInput(event.target.value)} />
+      <Input value={input} onChange={(event) => setInput(event.target.value.toUpperCase())} />
 
       <div className="content-input-label">Version</div>
       <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>

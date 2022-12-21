@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Input, InputNumber } from "antd";
 
 export function BaseCipher() {
-  const [input, setInput] = useState<string>("");
+  const [input, setInput] = useState<string>("HELLO WORLD");
   const [offset, setOffset] = useState<number>(3);
   const [encrypted, setEncrypted] = useState<string>("");
   const [decrypted, setDecrypted] = useState<string>("");
@@ -17,7 +17,7 @@ export function BaseCipher() {
     return newCharCode;
   };
 
-  const decode = (inputStr: string): string => {
+  const decrypt = (inputStr: string): string => {
     return inputStr
       .toUpperCase()
       .split("")
@@ -37,7 +37,7 @@ export function BaseCipher() {
     return newCharCode;
   };
 
-  const encode = (inputStr: string): string => {
+  const encrypt = (inputStr: string): string => {
     return inputStr
       .toUpperCase()
       .split("")
@@ -48,11 +48,11 @@ export function BaseCipher() {
   };
 
   useEffect(() => {
-    setEncrypted(encode(input));
+    setEncrypted(encrypt(input));
   }, [input, offset]);
 
   useEffect(() => {
-    setDecrypted(decode(encrypted));
+    setDecrypted(decrypt(encrypted));
   }, [encrypted]);
 
   return (

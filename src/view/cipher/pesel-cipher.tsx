@@ -3,13 +3,13 @@ import { Input, Radio } from "antd";
 import { Gender } from "../../type/enum/gender";
 
 export function PeselCipher() {
-  const [input, setInput] = useState<string>("");
+  const [input, setInput] = useState<string>("6708056543");
   const [gender, setGender] = useState<Gender>(Gender.Male);
   const [encrypted, setEncrypted] = useState<string>("");
   const [decrypted, setDecrypted] = useState<string>("");
   const [isValidGender, setIsValidGender] = useState<boolean>(false);
 
-  const encode = (inputStr: string): string => {
+  const encrypt = (inputStr: string): string => {
     if (!/^[0-9]*$/.test(inputStr)) {
       return "error: invalid input provided";
     }
@@ -35,7 +35,7 @@ export function PeselCipher() {
     return `${inputStr}${10 - (result % 10)}`;
   };
 
-  const decode = (inputStr: string): string => {
+  const decrypt = (inputStr: string): string => {
     if (!/^[0-9]*$/.test(inputStr)) {
       return "error: invalid input provided";
     }
@@ -44,7 +44,7 @@ export function PeselCipher() {
       return "error: invalid length of input";
     }
 
-    const encodedPesel = encode(inputStr.substring(0, 10));
+    const encodedPesel = encrypt(inputStr.substring(0, 10));
 
     if (encodedPesel === inputStr) {
       return "Given PESEL is valid";
@@ -54,11 +54,11 @@ export function PeselCipher() {
   };
 
   useEffect(() => {
-    setEncrypted(encode(input));
+    setEncrypted(encrypt(input));
   }, [input]);
 
   useEffect(() => {
-    setDecrypted(decode(encrypted));
+    setDecrypted(decrypt(encrypted));
   }, [encrypted]);
 
   useEffect(() => {

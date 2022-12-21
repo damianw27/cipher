@@ -35,8 +35,10 @@ export class HomophonicDictionary {
   public static createWithOrdering(): HomophonicDictionary {
     const dictionary: string[][] = [];
 
-    for (let i = 0; i < StringUtils.dictionary.length; i++) {
-      dictionary[i] = [0, 1, 2].map((offset) => String.fromCharCode(33 + i + 26 * offset));
+    for (let charIndex = 0; charIndex < StringUtils.dictionary.length; charIndex++) {
+      dictionary[charIndex] = [0, 1, 2].map((offset) =>
+        String.fromCharCode(33 + charIndex + 26 * offset),
+      );
     }
 
     console.table(dictionary);

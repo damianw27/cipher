@@ -13,7 +13,7 @@ export const VigenereCipher = (): ReactElement => {
       .map((_, index) => words[index % words.length])
       .join("");
 
-  const encode = (inputStr: string, dictionary: string): string =>
+  const encrypt = (inputStr: string, dictionary: string): string =>
     inputStr
       .split("")
       .map((char, index) => (char.charCodeAt(0) + dictionary.charCodeAt(index)) % 26)
@@ -21,7 +21,7 @@ export const VigenereCipher = (): ReactElement => {
       .map((charCode) => String.fromCharCode(charCode))
       .join("");
 
-  const decode = (inputStr: string, dictionary: string): string =>
+  const decrypt = (inputStr: string, dictionary: string): string =>
     inputStr
       .split("")
       .map((char, index) => (char.charCodeAt(0) - dictionary.charCodeAt(index)) % 26)
@@ -31,12 +31,12 @@ export const VigenereCipher = (): ReactElement => {
 
   useEffect(() => {
     const dictionary = getDictionary(input, keyword);
-    setEncrypted(encode(input, dictionary));
+    setEncrypted(encrypt(input, dictionary));
   }, [input, keyword]);
 
   useEffect(() => {
     const dictionary = getDictionary(input, keyword);
-    setDecrypted(decode(encrypted, dictionary));
+    setDecrypted(decrypt(encrypted, dictionary));
   }, [encrypted, keyword]);
 
   return (

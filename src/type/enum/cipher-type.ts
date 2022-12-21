@@ -5,4 +5,5 @@ export enum CipherType {
   Vigenere = "VIGENERE",
   Playfair = "PLAYFAIR",
   Homophonic = "HOMOPHONIC",
+  Rotor = "ROTOR",
 }
