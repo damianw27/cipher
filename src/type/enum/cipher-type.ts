@@ -6,4 +6,6 @@ export enum CipherType {
   Playfair = "PLAYFAIR",
   Homophonic = "HOMOPHONIC",
   Rotor = "ROTOR",
+  Hamming = "HAMMING",
+  RSA = "RSA",
 }
